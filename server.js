@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 app.listen(300);
 
+
+
 var names = ["adhil", "amal", "ajas", "shaham", "mujsh"];
 
 //searching for a specified name
@@ -41,6 +43,7 @@ admin we handle from seperate file and also we integrate it to our main as well
 Likewise we can also seperae different routes based on post,get,patch and delete
 */
 
+var newUser = require('./json_middlware.js');
 var userRoutes = require('./routes/users.js');
 var adminRoutes = require('./routes/admin.js');
 
@@ -49,3 +52,4 @@ var adminRoutes = require('./routes/admin.js');
 // "/users" -> this means that in every route there will be /users initially and we dont need to write it again and again
 app.use("/users",userRoutes);
 app.use("/admin",adminRoutes);
+app.use(newUser)

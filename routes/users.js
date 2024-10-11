@@ -33,13 +33,14 @@ router
 //! MIDDLEWARE
 
 // It acts between our server and client. before recieving and sending anything it will be handled by this middleware
+//*every middleware will have a parameter req,res and next
 
 //! params
 // her whenever there is a parameter with id is called, the function will get invoked
 //* params acts as a middleware
 // so the get method will be only called after this function and it will work only when we call //* next()
 router.param("id",(req,res,next,id)=>{
-   console.log(req.params.id);
+   console.log(id);
    next()
 })
 
